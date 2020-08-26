@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
-{ 
+{
     public void Countinue()
     {
         // Если есть сохраненная игра - кнопка активна, продолжает игру (interactable set active)
