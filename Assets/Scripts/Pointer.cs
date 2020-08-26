@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
+using System;
+
+[Serializable]
+public class InteractiveObjectEvent : UnityEvent<InteractiveObject, InteractiveObject> { }
 
 public class Pointer : MonoBehaviour, IPause
 {
@@ -7,7 +12,12 @@ public class Pointer : MonoBehaviour, IPause
 
     [SerializeField] Transform PointerUI;
     [SerializeField] LayerMask layerMask;
+    [SerializeField] [Range(1, 5)] float distance;
+    public InteractiveObject selectObject;
+    public InteractiveObjectEvent OnChangeSelectObject;
+
     Camera cam;
+    Coroutine corutine;
 
     private void Awake()
     {
@@ -19,29 +29,63 @@ public class Pointer : MonoBehaviour, IPause
         {
             Destroy(this);
         }
-        cam = Camera.main;
     }
-    public Transform position;
 
-    private void LateUpdate()
+
+    private void Start()
     {
+        cam = Camera.main;
+        corutine = StartCoroutine(Look());
+    }
 
-        if (Physics.Raycast(cam.ScreenPointToRay(PointerUI.position), out RaycastHit hit, layerMask))
+    IEnumerator Look()
+    {
+        while (true)
         {
-            if (hit.transform)
+            var ray = cam.ScreenPointToRay(PointerUI.position);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, 5, layerMask))
             {
 
+                var interactiveObject = hit.transform.GetComponent<InteractiveObject>();
+
+
+                if (hit.distance < distance)
+                {
+                    if (selectObject != interactiveObject)
+                    {
+                        OnChangeSelectObject.Invoke(selectObject, interactiveObject);
+                        selectObject = interactiveObject;
+                    }
+                }
+                else
+                {
+                    if (selectObject != null)
+                    {
+                        OnChangeSelectObject.Invoke(selectObject, null);
+                        selectObject = null;
+                    }
+                }
             }
+            else
+            {
+                if (selectObject != null)
+                {
+                    OnChangeSelectObject.Invoke(selectObject, null);
+                    selectObject = null;
+                }
+            }
+            yield return null;
         }
     }
 
     public void Pause()
     {
-        throw new System.NotImplementedException();
+        StopCoroutine(corutine);
     }
 
     public void Resume()
     {
-        throw new System.NotImplementedException();
+        corutine = StartCoroutine(Look());
     }
 }
