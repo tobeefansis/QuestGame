@@ -1711,6 +1711,7 @@ GameObject:
   - component: {fileID: 683784172}
   - component: {fileID: 683784171}
   - component: {fileID: 683784174}
+  - component: {fileID: 683784175}
   m_Layer: 5
   m_Name: FadingPanel
   m_TagString: Untagged
@@ -1747,7 +1748,7 @@ Animator:
   m_GameObject: {fileID: 683784169}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 08141ebca91ef6d4185b231fa07588c0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 72a117076e5e8924786b0ebb6cf18966, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1805,6 +1806,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbfd2b6297382a40a773a8d07a3a4d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &683784175
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683784169}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 113cbc44396b8cc4eb95e76cfb4af9d7, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &697232041
 GameObject:
   m_ObjectHideFlags: 0
