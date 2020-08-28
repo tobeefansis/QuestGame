@@ -4,14 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Скрипт задает язык при  помощи выпадающего списка
+// Скрипт задает язык системы
 public class LanguageManager : MonoBehaviour
 {
-    public Dropdown dropdown;
-
-    #region Language SetMethods
-
-
-
-    #endregion
+    private void Start()
+    {
+        FindObjectOfType<Localize>().TranslateText();
+    }
 }
