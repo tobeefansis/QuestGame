@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Localize : MonoBehaviour
 {
@@ -11,13 +13,14 @@ public class Localize : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        SetSystemLanguage();
     }
 
-    void SetLanguage()
+    void SetSystemLanguage()
     {
         language = Application.systemLanguage;
         var file = Resources.Load<TextAsset>(SystemLanguage.English.ToString());
-        language = SystemLanguage.English; ;
+        language = SystemLanguage.English;
         if (file == null)
         {
             file = Resources.Load<TextAsset>(SystemLanguage.English.ToString());
@@ -33,11 +36,11 @@ public class Localize : MonoBehaviour
 
     void TranslateText()
     {
-       // var 
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        var localizations = Resources.FindObjectsOfTypeAll<LocalizationKey>();
+        foreach (var key in localizations)
+        {
+            var text = key.GetComponent<Text>();
+            text.text = Regex.Unescape(languageList[key.KeyWord]);
+        }
     }
 }
