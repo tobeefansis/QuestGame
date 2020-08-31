@@ -131,9 +131,8 @@ GameObject:
   m_Component:
   - component: {fileID: 65925654}
   - component: {fileID: 65925655}
-  - component: {fileID: 65925656}
   m_Layer: 0
-  m_Name: Localization
+  m_Name: LocalizationManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,22 +161,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 65925653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6758642aad76d6e4aa08b73fec13f6c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fa9903a50ee3ed4bb5875d14f7b33c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &65925656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65925653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ff010dae648127439f89d91f854d404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 348741407}
 --- !u!1 &122963325
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &180491003
 RectTransform:
   m_ObjectHideFlags: 0
@@ -941,6 +927,7 @@ GameObject:
   - component: {fileID: 310909398}
   - component: {fileID: 310909400}
   - component: {fileID: 310909399}
+  - component: {fileID: 310909401}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1008,6 +995,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310909397}
   m_CullTransparentMesh: 0
+--- !u!114 &310909401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310909397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d70d25aea6647a479eea09b36cd67f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: new_game
 --- !u!1 &332172604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,6 +1160,7 @@ GameObject:
   - component: {fileID: 340517552}
   - component: {fileID: 340517554}
   - component: {fileID: 340517553}
+  - component: {fileID: 340517555}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1227,6 +1228,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 340517551}
   m_CullTransparentMesh: 0
+--- !u!114 &340517555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340517551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d70d25aea6647a479eea09b36cd67f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: countinue
 --- !u!1 &348741405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,14 +1324,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 65925655}
-        m_MethodName: SetRU
-        m_Mode: 1
+        m_MethodName: LoadLocalizedText
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: LocalizedText_ru.json
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &348741408
@@ -1390,7 +1404,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1446,7 +1460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &404074917
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2732,7 +2746,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1202392695}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 65925655}
+        m_MethodName: LoadLocalizedText
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LocalizedText_en.json
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1202392695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4193,7 +4218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d70d25aea6647a479eea09b36cd67f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KeyWord: new game
+  key: new_game
 --- !u!1 &2018664456
 GameObject:
   m_ObjectHideFlags: 0
