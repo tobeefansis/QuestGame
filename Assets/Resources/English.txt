@@ -1,6 +1,0 @@
-countinue=Countinue
-new game=New Game
-settings=Settings
-multiplayer=Multiplayer
-reset progress=Reset progress
-exit=Exit

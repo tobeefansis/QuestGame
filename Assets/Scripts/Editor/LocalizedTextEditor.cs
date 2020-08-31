@@ -27,6 +27,7 @@ public class LocalizedTextEditor : EditorWindow
                 SaveGameData();
             }
         }
+        
         if (GUILayout.Button("Load data"))
         {
             LoadGameData();
