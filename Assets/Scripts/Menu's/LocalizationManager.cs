@@ -10,7 +10,6 @@ public class LocalizationManager : MonoBehaviour
 {
     private Dictionary<string, string> localizedText;
     public static LocalizationManager instance;
-    private bool isReady = false;
     private string missingTextString = "LocalizedTextNotFound";
     void Awake()
     {
@@ -37,21 +36,17 @@ public class LocalizationManager : MonoBehaviour
             {
                 localizedText.Add(loadedData.Items[i].key, loadedData.Items[i].value);
             }
-            Debug.Log("Contains " + localizedText.Count + " items");
             Refresh();
         }
         else
         {
             Debug.LogError("Cannot find file :(");
         }
-
-        isReady = true;
     }
-
     public void Refresh()
     {
-        var t = FindObjectsOfType<LocalizationKey>();
-        foreach (var item in t)
+        var items = FindObjectsOfType<LocalizationKey>();
+        foreach (var item in items)
         {
             item.Load();
         }
@@ -65,5 +60,4 @@ public class LocalizationManager : MonoBehaviour
         }
         return result;
     }
-    public bool GetIsReady() => isReady;
 }
