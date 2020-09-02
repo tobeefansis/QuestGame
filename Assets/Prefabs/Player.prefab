@@ -107,7 +107,6 @@ GameObject:
   - component: {fileID: 674240172501483918}
   - component: {fileID: 674240172501483914}
   - component: {fileID: 674240172501483913}
-  - component: {fileID: 674240172501483915}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -257,38 +256,6 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
---- !u!114 &674240172501483915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674240172501483917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf64739dbd2ab64ea6d4de63a9ba207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PointerUI: {fileID: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  distance: 3.51
-  selectObject: {fileID: 0}
-  OnChangeSelectObject:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ChangeSelectObject
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &674240172867331052
 GameObject:
   m_ObjectHideFlags: 0
