@@ -18,6 +18,7 @@ public class TimeController : MonoBehaviour
     public int Second => (int)time % 60;
     public int Minute => ((int)time % 3600) / 60;
     public int Hour => (int)time / 3600;
+    public float TimeOfDay => time / SecondsPerDay;
 
     private void Awake()
     {
