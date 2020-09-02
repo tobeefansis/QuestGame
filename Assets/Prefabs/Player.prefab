@@ -407,7 +407,7 @@ MonoBehaviour:
   jumpDistance: 1.2
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!54 &674240172867331050
 Rigidbody:
   m_ObjectHideFlags: 0

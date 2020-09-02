@@ -78,7 +78,7 @@ public class MovementController : MonoBehaviour
             float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
             rotationY += Input.GetAxis("Mouse Y") * sensitivity;
             rotationY = Mathf.Clamp(rotationY, headMinY, headMaxY);
-            head.localEulerAngles = new Vector3(180, -rotationY, 0);
+            head.localEulerAngles = new Vector3(-rotationY, 0, 0);
             transform.localEulerAngles = new Vector3(0, rotationX, 0);
             direction = new Vector3(h, 0, v);
             direction = transform.TransformDirection(direction);
