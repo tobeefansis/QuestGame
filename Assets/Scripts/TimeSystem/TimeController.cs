@@ -10,9 +10,11 @@ public class TimeController : MonoBehaviour
     public float time;
     [Range(0, 10000)] public int timeScale = 1;
 
+    #region Singletone
     private static TimeController instance;
-
     public static TimeController Instance { get => instance; private set => instance = value; }
+
+    #endregion
 
     public string Now => $"{Hour,2}:{Minute,2}:{Second,2}";
     public int Second => (int)time % 60;
