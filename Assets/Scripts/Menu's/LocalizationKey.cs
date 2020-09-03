@@ -11,7 +11,6 @@ public class LocalizationKey : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
-        Load();
 
     }
     private void OnEnable()

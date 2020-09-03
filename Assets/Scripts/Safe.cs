@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 
 public class Safe : InteractiveObject
 {
-    // Update is called once per frame
-    void Update()
+    [SerializeField] Animation openDoor;
+    [SerializeField] Animation closeDoor;
+    public void OpenDoor()
     {
-        if (Input.GetAxis("Use") != 0)
-        {
-
-        }
+        openDoor.Play();
+    }
+    public void CloseDoor ()
+    {
+        closeDoor.Play();
     }
 }
+

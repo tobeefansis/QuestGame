@@ -9,17 +9,6 @@ public class ContextMenu : MonoBehaviour, IPause
         if (before) before.Hide();
         if (after) after.Show();
     }
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void Pause()
     {
