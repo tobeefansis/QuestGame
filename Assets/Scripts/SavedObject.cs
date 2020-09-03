@@ -31,7 +31,7 @@ public abstract class SavedObject : MonoBehaviour
     {
         JsonUtility.FromJsonOverwrite(value, this);
     }
-    [InitializeOnEnterPlayMode]
+ 
     public void Load()
     {
         var str = PlayerPrefs.GetString(path);
