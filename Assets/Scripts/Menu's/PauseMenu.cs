@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool isPaused = false;
     [SerializeField] GameObject pauseMenuUI;
+    [Tooltip("Добавить пойнтер игрока")]
     [SerializeField] GameObject disablePointer;
     void Update()
     {
