@@ -276,6 +276,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  active: 0
 --- !u!136 &56151826
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1517,6 +1518,18 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &352612685 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1305867533428638045, guid: 7aec7ae5685d4c042b46a340eb9694d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2144422358004158860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c464348d6fd57974b9092f41da587d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &372581506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 443218, guid: c3450acf831bfe8488297849333aa224,
@@ -4839,6 +4852,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1140598995}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1792074675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1792074676}
+  m_Layer: 0
+  m_Name: Zoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1792074676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792074675}
+  m_LocalRotation: {x: -0.001727604, y: -0.99036765, z: 0.13785827, w: -0.012809271}
+  m_LocalPosition: {x: -7.1030726, y: 34.084473, z: 58.228806}
+  m_LocalScale: {x: 46.603416, y: 46.603416, z: 46.603416}
+  m_Children: []
+  m_Father: {fileID: 5439324507777926549}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1805779001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5204,6 +5247,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97318fbbd96e1824c9f8390c74e20ed3, type: 3}
+--- !u!1 &2015817628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2015817630}
+  - component: {fileID: 2015817629}
+  m_Layer: 0
+  m_Name: PauseManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2015817629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015817628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b10151ca5d71a4ba6221b7b142dd2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2015817630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015817628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.8982255, y: 1.1691557, z: 7.2707114}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2015937779
 GameObject:
   m_ObjectHideFlags: 0
@@ -5577,6 +5663,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1305867533428638045, guid: 7aec7ae5685d4c042b46a340eb9694d7,
+        type: 3}
+      propertyPath: FinishCamPosition
+      value: 
+      objectReference: {fileID: 1792074676}
     - target: {fileID: 1385259623814982948, guid: 7aec7ae5685d4c042b46a340eb9694d7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5701,11 +5792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: keyActions.Array.data[0].action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1525603287}
+      objectReference: {fileID: 352612685}
     - target: {fileID: 4431716116213499373, guid: 7aec7ae5685d4c042b46a340eb9694d7,
         type: 3}
       propertyPath: keyActions.Array.data[0].action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenClose
+      value: ShowObject
       objectReference: {fileID: 0}
     - target: {fileID: 4431716116213499373, guid: 7aec7ae5685d4c042b46a340eb9694d7,
         type: 3}

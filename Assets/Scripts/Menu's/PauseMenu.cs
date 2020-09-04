@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject pauseMenuUI;
     [Tooltip("Добавить пойнтер игрока")]
     [SerializeField] GameObject disablePointer;
+    public GameObject pauseManager;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
