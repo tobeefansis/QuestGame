@@ -12,13 +12,13 @@ public class InteractiveObject : MonoBehaviour
     public void Show()
     {
         IsShow = true;
-        canvas.gameObject.SetActive(true);
+        //canvas.gameObject.SetActive(true);
     }
 
     public void Hide()
     {
         IsShow = false;
-        canvas.gameObject.SetActive(false);
+      //  canvas.gameObject.SetActive(false);
     }
     private void Update()
     {

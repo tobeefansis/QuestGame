@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
-public class MovementController : MonoBehaviour
+public class MovementController : MonoBehaviour, IPause
 {
 
     [SerializeField] [Range(1, 30)] float speed = 1.5f;
@@ -21,13 +21,13 @@ public class MovementController : MonoBehaviour
     public LayerMask layerMask;
     private Rigidbody body;
     private float rotationY;
-    public static bool active;
+    public bool active;
 
     void Start()
     {
         body = GetComponent<Rigidbody>();
         body.freezeRotation = true;
-        StartActive();
+        Resume();
     }
 
     void FixedUpdate()
@@ -55,18 +55,6 @@ public class MovementController : MonoBehaviour
 
         return false;
     }
-
-    public static void StopActive()
-    {
-        active = false;
-        Cursor.visible = true;
-    }
-    public static void StartActive()
-    {
-        active = true;
-        Cursor.visible = false;
-    }
-
     void Update()
     {
         if (active)
@@ -94,5 +82,18 @@ public class MovementController : MonoBehaviour
             direction = new Vector3(0, 0, 0);
 
         }
+    }
+
+    public void Pause()
+    {
+        active = false;
+        Cursor.visible = true;
+
+    }
+
+    public void Resume()
+    {
+        active = true;
+        Cursor.visible = false;
     }
 }
