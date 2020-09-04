@@ -8,10 +8,9 @@ public class LocalizationKey : MonoBehaviour
     [Tooltip("Ключевое слово для перевода ввести с маленькой буквы, вместро пробелом использовать нижнее подчеркивание \"_\"")]
     public string key;
     Text text;
-    void Start()
+    void Awake()
     {
         text = GetComponent<Text>();
-
     }
     private void OnEnable()
     {

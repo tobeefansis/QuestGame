@@ -21,10 +21,10 @@ public class LocalizationManager : MonoBehaviour
             Destroy(this);
         }
         DontDestroyOnLoad(gameObject);
+        localizedText = new Dictionary<string, string>();
     }
     public void LoadLocalizedText(string fileName)
     {
-        localizedText = new Dictionary<string, string>();
         string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
         if (File.Exists(filePath))
         {
