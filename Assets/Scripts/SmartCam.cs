@@ -7,19 +7,19 @@ using System;
 public class SmartCam : MonoBehaviour
 {
     public Transform FinishCamPosition;
-    public Transform LastCameraParent;
+    Transform LastCameraParent;
     public float Duration;
     Vector3 lastPos;
     Vector3 lastRot;
 
     public void ShowObject()
     {
+        PauseManager.Instance.Pause();
         var cam = Camera.main.transform;
         LastCameraParent = cam.parent; cam.parent = null;
         lastPos = cam.position;
         lastRot = cam.rotation.eulerAngles;
 
-        PauseManager.Instance.Pause();
 
         Sequence sequence = DOTween.Sequence();
         sequence.Append(cam.DOMove(FinishCamPosition.position, Duration));

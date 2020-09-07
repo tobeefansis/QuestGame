@@ -17,5 +17,6 @@ public class SkyboxChanger : MonoBehaviour
     {
         RenderSettings.skybox = Skyboxes[_dropdown.value];
         RenderSettings.skybox.SetFloat("_Rotation", 0);
+        
     }
 }

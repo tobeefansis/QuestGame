@@ -8,7 +8,7 @@ public class TextEditor : MonoBehaviour
 {
     [SerializeField] InputField text;
 
-    TextFile select;
+    [SerializeField] TextFile select;
 
     public void SetTextFile(TextFile file)
     {
@@ -19,6 +19,7 @@ public class TextEditor : MonoBehaviour
     public void SaveText(string text)
     {
         select.text = text;
+        this.text.text = select.text;
     }
 }
 [CreateAssetMenu()]

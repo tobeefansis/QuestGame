@@ -87,13 +87,13 @@ public class MovementController : MonoBehaviour, IPause
     public void Pause()
     {
         active = false;
-        Cursor.visible = true;
+      
 
     }
 
     public void Resume()
     {
         active = true;
-        Cursor.visible = false;
+       
     }
 }

@@ -3,12 +3,34 @@ using System.Collections;
 
 public class ContextMenu : MonoBehaviour, IPause
 {
-    public void ChangeSelectObject(InteractiveObject before, InteractiveObject after)
+    [SerializeField] Transform IconTarget;
+    [SerializeField] ContextMenuKey keyPrefub;
+    [SerializeField] InteractiveObject selected;
+
+    public void ChangeSelectObject(InteractiveObject selected)
     {
-    
-        if (before) before.Hide();
-        if (after) after.Show();
+        if (this.selected)
+        {
+            this.selected.Hide();
+        }
+        this.selected = selected;
+
+        for (int i = 0; i < IconTarget.childCount; i++)
+        {
+            Destroy(IconTarget.GetChild(i).gameObject);
+        }
+
+        if (selected)
+        {
+            selected.Show();
+            foreach (var item in selected.keyActions)
+            {
+                Instantiate(keyPrefub, IconTarget).Set(item);
+            }
+        }
     }
+
+
 
     public void Pause()
     {

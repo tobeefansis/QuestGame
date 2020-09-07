@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using System;
 
 [Serializable]
-public class InteractiveObjectEvent : UnityEvent<InteractiveObject, InteractiveObject> { }
+public class InteractiveObjectEvent : UnityEvent<InteractiveObject> { }
 
 public class Pointer : MonoBehaviour, IPause
 {
@@ -54,7 +54,7 @@ public class Pointer : MonoBehaviour, IPause
                 {
                     if (selectObject != interactiveObject)
                     {
-                        OnChangeSelectObject.Invoke(selectObject, interactiveObject);
+                        OnChangeSelectObject.Invoke(interactiveObject);
                         selectObject = interactiveObject;
                     }
                 }
@@ -62,7 +62,7 @@ public class Pointer : MonoBehaviour, IPause
                 {
                     if (selectObject != null)
                     {
-                        OnChangeSelectObject.Invoke(selectObject, null);
+                        OnChangeSelectObject.Invoke(null);
                         selectObject = null;
                     }
                 }
@@ -71,7 +71,7 @@ public class Pointer : MonoBehaviour, IPause
             {
                 if (selectObject != null)
                 {
-                    OnChangeSelectObject.Invoke(selectObject, null);
+                    OnChangeSelectObject.Invoke(null);
                     selectObject = null;
                 }
             }
@@ -81,11 +81,15 @@ public class Pointer : MonoBehaviour, IPause
 
     public void Pause()
     {
-        StopCoroutine(corutine);
+        StopCoroutine(corutine); 
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Resume()
     {
-        corutine = StartCoroutine(Look());
+        corutine = StartCoroutine(Look()); 
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

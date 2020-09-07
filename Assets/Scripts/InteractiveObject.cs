@@ -4,25 +4,25 @@ using UnityEngine.Events;
 using System.Collections.Generic;
 using System;
 
-public class InteractiveObject : MonoBehaviour
+public class InteractiveObject : MonoBehaviour, IPause
 {
     public List<KeyAction> keyActions = new List<KeyAction>();
-    public Canvas canvas;
+
     public bool IsShow;
+    public bool IsPause;
+
     public void Show()
     {
         IsShow = true;
-        //canvas.gameObject.SetActive(true);
     }
 
     public void Hide()
     {
         IsShow = false;
-      //  canvas.gameObject.SetActive(false);
     }
     private void Update()
     {
-        if (IsShow)
+        if (IsShow && !IsPause)
         {
             foreach (var item in keyActions)
             {
@@ -32,6 +32,17 @@ public class InteractiveObject : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Pause()
+    {
+        IsPause = true;
+    }
+
+    public void Resume()
+    {
+        IsPause = false;
+
     }
 }
 
