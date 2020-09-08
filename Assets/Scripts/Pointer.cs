@@ -29,19 +29,21 @@ public class Pointer : MonoBehaviour, IPause
         {
             Destroy(this);
         }
+        cam = Camera.main;
+        corutine = StartCoroutine(Look());
     }
 
 
     private void Start()
     {
-        cam = Camera.main;
-        corutine = StartCoroutine(Look());
+       
     }
 
     IEnumerator Look()
     {
         while (true)
         {
+
             var ray = cam.ScreenPointToRay(PointerUI.position);
 
             if (Physics.Raycast(ray, out RaycastHit hit, 5, layerMask))
@@ -81,6 +83,7 @@ public class Pointer : MonoBehaviour, IPause
 
     public void Pause()
     {
+        
         StopCoroutine(corutine); 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

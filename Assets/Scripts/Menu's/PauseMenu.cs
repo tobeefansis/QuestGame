@@ -5,40 +5,39 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour, IPause
 {
     public static bool isPaused = false;
     [SerializeField] GameObject pauseMenuUI;
-    [Tooltip("Добавить пойнтер игрока")]
-    [SerializeField] GameObject disablePointer;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!isPaused)
+            isPaused = !isPaused;
+            if (isPaused)
             {
-                Pause();
+                PauseManager.Instance.Pause();
             }
-            else if (isPaused)
+            else
             {
-                Resume();
+                PauseManager.Instance.Resume();
             }
         }
     }
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        isPaused = false;
-        disablePointer.SetActive(true);
+        
+       
+
     }
 
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        isPaused = true;
-        disablePointer.SetActive(false);
+     
+       
+  
     }
     public void Save()
     {
