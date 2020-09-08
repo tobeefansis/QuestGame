@@ -29,6 +29,9 @@ public class PauseManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        Resume();
+
     }
 
     public void Pause()

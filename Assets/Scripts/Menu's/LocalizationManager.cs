@@ -13,7 +13,7 @@ public class LocalizationManager : MonoBehaviour
     private string missingTextString = "LocalizedTextNotFound";
     void Awake()
     {
-        // Используем синглтон для инициализации только одного объекта
+        // Синглтон для инициализации только одного объекта
         if (instance == null)
             instance = this;
         else if (instance != this)
@@ -22,6 +22,23 @@ public class LocalizationManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         localizedText = new Dictionary<string, string>();
+    }
+    private void Start()
+    {
+        #region Set system language
+        if (Application.systemLanguage == SystemLanguage.English)
+        {
+            LoadLocalizedText("LocalizedText_en.json");
+        }
+        else if (Application.systemLanguage == SystemLanguage.Russian)
+        {
+            LoadLocalizedText("LocalizedText_ru.json");
+        }
+        else
+        {
+            LoadLocalizedText("LocalizedText_en.json");
+        }
+        #endregion
     }
     public void LoadLocalizedText(string fileName)
     {
