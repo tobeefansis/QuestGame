@@ -21,7 +21,7 @@ public class LocalizationManager : MonoBehaviour
             Destroy(this);
         }
         DontDestroyOnLoad(gameObject);
-        localizedText = new Dictionary<string, string>();
+        
     }
     private void Start()
     {
@@ -42,6 +42,7 @@ public class LocalizationManager : MonoBehaviour
     }
     public void LoadLocalizedText(string fileName)
     {
+        localizedText = new Dictionary<string, string>();
         string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
         if (File.Exists(filePath))
         {
@@ -73,7 +74,7 @@ public class LocalizationManager : MonoBehaviour
         string result = missingTextString;
         if (localizedText.ContainsKey(key))
         {
-            result = localizedText[key];
+           result = localizedText[key];
         }
         return result;
     }

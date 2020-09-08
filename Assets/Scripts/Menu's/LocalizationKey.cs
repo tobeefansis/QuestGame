@@ -14,7 +14,7 @@ public class LocalizationKey : MonoBehaviour
     }
     private void OnEnable()
     {
-        Load();
+        Invoke("Load()", 0.2f);
     }
     public void Load()
     {
