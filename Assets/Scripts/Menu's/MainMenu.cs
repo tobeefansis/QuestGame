@@ -9,9 +9,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] AudioSource buttonSound;
+
+    #region MainMenu
     public void Countinue()
     {
         // Если есть сохраненная игра - кнопка активна, продолжает игру (interactable set active)
@@ -33,7 +34,8 @@ public class MainMenu : MonoBehaviour
     {
         buttonSound.Play();
     }
-    #region VolumeSettings
+    #endregion
+    #region Settings
     public void SetMasterVolume(float volume)
     {
         audioMixer.SetFloat("masterVolume", volume);
@@ -47,4 +49,7 @@ public class MainMenu : MonoBehaviour
         audioMixer.SetFloat("soundsVolume", volume);
     }
     #endregion
+    #region Multiplayer
+    #endregion
+
 }
