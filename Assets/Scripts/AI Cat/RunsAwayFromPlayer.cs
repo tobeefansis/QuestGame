@@ -3,9 +3,12 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
-public class FoodPursuit : StateMachineBehaviour
+public class RunsAwayFromPlayer : StateMachineBehaviour
 {
+
+    public Transform PlayerTarget;
     public NavMeshAgent agent;
     public CatAI AI;
 
@@ -14,23 +17,22 @@ public class FoodPursuit : StateMachineBehaviour
     {
         AI = animator.gameObject.GetComponent<CatAI>();
         agent = AI.Agent;
-       
+        PlayerTarget = AI.Player;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.SetDestination(AI.target.transform.position);
-
-        Debug.Log(AI.target.transform.position);
+        Vector3 dirToPlayer = agent.transform.position - PlayerTarget.position;
+        Vector3 newPos = agent.transform.position + dirToPlayer;
+        agent.SetDestination(newPos);
+        
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.isStopped = true;
-
-        Debug.Log(agent);
+        agent.SetDestination(agent.transform.position);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

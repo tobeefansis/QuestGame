@@ -9,7 +9,7 @@ public class CatAI : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] NavMeshAgent agent;
     public GameObject target;
-
+    public Transform Player;
     List<GameObject> FoodForCat;
 
     public NavMeshAgent Agent { get => agent; set => agent = value; }
@@ -19,6 +19,7 @@ public class CatAI : MonoBehaviour
     void Start()
     {
         FoodForCat = LevelManager.instance.FoodForCat;
+        Player = LevelManager.instance.Player;
     }
 
     // Update is called once per frame
@@ -41,6 +42,16 @@ public class CatAI : MonoBehaviour
         {
             target = null;
             animator.SetFloat("Distance To Food", 100);
+        }
+        if (Player)
+        {
+            animator.SetFloat("Distance To Player", Vector3.Distance(Player.position, transform.position));
+            
+        }
+        else
+        {
+            animator.SetFloat("Distance To Player", 100);
+            
         }
     }
 }
