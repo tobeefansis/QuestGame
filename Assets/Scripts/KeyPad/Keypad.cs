@@ -32,7 +32,7 @@ public class Keypad : MonoBehaviour
     {
         if (input == currentPassword)
         {
-            //correctPassword.Play();
+            correctPassword.Play();
             displayText.gameObject.SetActive(false);
             var cam = FindObjectOfType<SmartCam>();
             cam.HideObject();
