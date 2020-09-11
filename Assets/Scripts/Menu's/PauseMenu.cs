@@ -27,17 +27,11 @@ public class PauseMenu : MonoBehaviour, IPause
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        
-       
-
     }
 
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
-     
-       
-  
     }
     public void Save()
     {

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class LocalizationManager : MonoBehaviour
 {
-    private Dictionary<string, string> localizedText;
+    private Dictionary<string, string> localizedText = new Dictionary<string, string>();
     public static LocalizationManager instance;
     private string missingTextString = "LocalizedTextNotFound";
     void Awake()
@@ -73,8 +73,9 @@ public class LocalizationManager : MonoBehaviour
         string result = missingTextString;
         if (localizedText.ContainsKey(key))
         {
-           result = localizedText[key];
+            result = localizedText[key];
         }
         return result;
+        
     }
 }

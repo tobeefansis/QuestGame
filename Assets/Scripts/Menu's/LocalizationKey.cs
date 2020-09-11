@@ -11,6 +11,7 @@ public class LocalizationKey : MonoBehaviour
     void Awake()
     {
         text = GetComponent<Text>();
+
     }
     private void OnEnable()
     {
