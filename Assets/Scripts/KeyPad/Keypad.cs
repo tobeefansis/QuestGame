@@ -37,6 +37,10 @@ public class Keypad : MonoBehaviour
             var cam = FindObjectOfType<SmartCam>();
             cam.HideObject();
             openSafe.SetBool("IsOpen", true);
+            var safe = gameObject.GetComponentInParent<InteractiveObject>();
+            var col = gameObject.GetComponentInParent<BoxCollider>();
+            safe.enabled = false;
+            col.enabled = false;
         }
         else
         {
