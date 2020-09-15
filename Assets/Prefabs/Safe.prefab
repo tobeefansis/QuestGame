@@ -1053,12 +1053,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502bf1de178862a4e9fb4110b5c69d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPassword: 1111
+  currentPassword: 1456
   input: 
   displayText: {fileID: 1155897603}
   correctPassword: {fileID: 0}
   incorrectPassword: {fileID: 0}
   openSafe: {fileID: 1525603288}
+  disable: {fileID: 0}
 --- !u!1 &3123239464280041380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,7 +1504,6 @@ GameObject:
   - component: {fileID: 1385259623814982948}
   - component: {fileID: 4799841044585548814}
   - component: {fileID: 1493876838}
-  - component: {fileID: 1493876841}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -1584,8 +1584,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 57.991093, y: 41.820797, z: 16.6784}
-  m_Center: {x: -13.413599, y: 22.8028, z: 32.839527}
+  m_Size: {x: 39.22302, y: 41.820797, z: 7.384505}
+  m_Center: {x: -10.103777, y: 22.8028, z: 28.192558}
 --- !u!114 &1493876838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1604,7 +1604,7 @@ MonoBehaviour:
     action:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1493876841}
+        - m_Target: {fileID: 1493876841, guid: 7aec7ae5685d4c042b46a340eb9694d7, type: 3}
           m_MethodName: ShowObject
           m_Mode: 1
           m_Arguments:
@@ -1617,20 +1617,6 @@ MonoBehaviour:
           m_CallState: 2
   IsShow: 0
   IsPause: 0
---- !u!114 &1493876841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4336556976050850216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c464348d6fd57974b9092f41da587d18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FinishCamPosition: {fileID: 6943173366405306111}
-  Duration: 1
 --- !u!1 &4516075180746635105
 GameObject:
   m_ObjectHideFlags: 0
@@ -2174,6 +2160,8 @@ GameObject:
   - component: {fileID: 6250670929640182809}
   - component: {fileID: 7083797210516845337}
   - component: {fileID: 4455911150930191807}
+  - component: {fileID: 906030067}
+  - component: {fileID: 906030068}
   m_Layer: 0
   m_Name: Safe
   m_TagString: Untagged
@@ -2226,8 +2214,53 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 41.4, y: 42.9, z: 33.97}
-  m_Center: {x: -9.3, y: 23.6, z: 15.1}
+  m_Size: {x: 37.52482, y: 42.899998, z: 32.73119}
+  m_Center: {x: -7.362411, y: 23.6, z: 14.48059}
+--- !u!114 &906030067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6770327215342096035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b2abc79d6a10e4aa88dc97b20e189b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyActions:
+  - name: enter code
+    key: 101
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 906030068}
+          m_MethodName: ShowObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  IsShow: 0
+  IsPause: 0
+--- !u!114 &906030068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6770327215342096035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c464348d6fd57974b9092f41da587d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FinishCamPosition: {fileID: 6943173366405306111}
+  Duration: 1
 --- !u!1 &6913337688021587276
 GameObject:
   m_ObjectHideFlags: 0

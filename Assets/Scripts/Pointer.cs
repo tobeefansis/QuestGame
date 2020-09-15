@@ -33,12 +33,6 @@ public class Pointer : MonoBehaviour, IPause
         corutine = StartCoroutine(Look());
     }
 
-
-    private void Start()
-    {
-       
-    }
-
     IEnumerator Look()
     {
         while (true)

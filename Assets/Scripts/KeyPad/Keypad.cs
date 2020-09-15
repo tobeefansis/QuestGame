@@ -12,7 +12,7 @@ public class Keypad : MonoBehaviour
     public AudioSource correctPassword;
     public AudioSource incorrectPassword;
     public Animator openSafe;
-    [SerializeField] BoxCollider boxcol;
+    [SerializeField] GameObject disable;
 
     private int buttonClicked = 0;
     private int numberOfChars;
@@ -38,7 +38,8 @@ public class Keypad : MonoBehaviour
             var cam = FindObjectOfType<SmartCam>();
             cam.HideObject();
             openSafe.SetBool("IsOpen", true);
-            boxcol.enabled = false;
+            disable.GetComponent<InteractiveObject>().enabled = false;
+            disable.GetComponent<BoxCollider>().enabled = false;
         }
         else
         {
