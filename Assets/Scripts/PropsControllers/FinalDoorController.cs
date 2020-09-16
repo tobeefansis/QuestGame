@@ -3,6 +3,7 @@ using UnityEngine;
 public class FinalDoorController : MonoBehaviour
 {
     public bool playerHaveKey = false;
+    private bool isCheked = false;
     [SerializeField] Animator door;
     [SerializeField] Animator doorHandler;
     [SerializeField] AudioSource doorClosed;
@@ -28,7 +29,7 @@ public class FinalDoorController : MonoBehaviour
     }
     private void Closed()
     {
-        doorHandler.Play("DoorClosedHandler");
-        doorHandler.SetTrigger("defaultState");
+        isCheked = !isCheked;
+        doorHandler.SetBool("isCheked", isCheked);
     }
 }
