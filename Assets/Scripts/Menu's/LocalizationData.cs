@@ -5,7 +5,7 @@ public class LocalizationData
     public LocalizationItem[] Items;
 }
 [System.Serializable]
-// В данном классе мы получаем key-value пары из Json файла
+// Получаем key-value пары из Json файла
 public class LocalizationItem
 {
     public string key;

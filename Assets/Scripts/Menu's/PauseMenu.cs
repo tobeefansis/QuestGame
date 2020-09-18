@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour, IPause
 {
     public static bool isPaused = false;
-    [SerializeField] GameObject pauseMenuUI;
+    [SerializeField] private GameObject pauseMenuUI;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

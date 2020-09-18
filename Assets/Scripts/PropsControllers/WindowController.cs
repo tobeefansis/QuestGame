@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class WindowController : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    [SerializeField] private Animator animator;
     public bool isOpen;
+    public static bool isBroken;
     private void Start()
     {
         isOpen = false;
@@ -13,10 +14,14 @@ public class WindowController : MonoBehaviour
     public void Break()
     {
         GetComponent<BreakableWindow>().breakWindow();
+        isBroken = true;
     }
     public void OpenClose()
     {
-        isOpen = !isOpen;
-        animator.SetBool("isOpen", isOpen);
+        if (!isBroken)
+        {
+            isOpen = !isOpen;
+            animator.SetBool("isOpen", isOpen);
+        }
     }
 }

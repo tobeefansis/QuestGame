@@ -135,7 +135,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674240172501483917}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674240172501483917}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -268,11 +268,10 @@ GameObject:
   - component: {fileID: 674240172867331048}
   - component: {fileID: 674240172867331055}
   - component: {fileID: 674240172867331054}
-  - component: {fileID: 674240172867331053}
-  - component: {fileID: 674240172867331050}
   - component: {fileID: -2747084897470908727}
   - component: {fileID: 2921772992443186278}
   - component: {fileID: -4211490511978938413}
+  - component: {fileID: -2928254490106337653}
   m_Layer: 0
   m_Name: PlayerMulti
   m_TagString: Untagged
@@ -356,45 +355,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &674240172867331053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674240172867331052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fa818c917bc4fa42a25f0062003c849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.5
-  head: {fileID: 674240171917232229}
-  sensitivity: 4.55
-  headMinY: -80
-  headMaxY: 80
-  jumpForce: 10
-  jumpDistance: 1.2
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  active: 0
---- !u!54 &674240172867331050
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674240172867331052}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &-2747084897470908727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +367,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12333dd245df3642be2b2ac8a1ddc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3.2
+  camera: {fileID: 674240172501483919}
+  head: {fileID: 674240171917232229}
+  sensitivity: 5
+  headMinY: -40
+  headMaxY: 40
+  jumpForce: 5
+  jumpDistance: 1.2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  body: {fileID: -2928254490106337653}
+  active: 0
 --- !u!114 &2921772992443186278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,3 +417,19 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!54 &-2928254490106337653
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674240172867331052}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

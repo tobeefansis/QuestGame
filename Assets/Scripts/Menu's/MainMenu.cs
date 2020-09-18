@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
@@ -9,8 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] AudioMixer audioMixer;
-    [SerializeField] AudioSource buttonSound;
+    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private AudioSource buttonSound;
 
     #region MainMenu
     public void Countinue()

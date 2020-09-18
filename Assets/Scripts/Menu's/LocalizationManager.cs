@@ -15,16 +15,21 @@ public class LocalizationManager : MonoBehaviour
     {
         // Синглтон для инициализации только одного объекта
         if (instance == null)
+        {
             instance = this;
-        else if (instance != this)
+        }
+            
+        else
         {
             Destroy(this);
         }
+           
         DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
-        #region Set system language
+        //switch
+        #region Set system language 
         if (Application.systemLanguage == SystemLanguage.English)
         {
             LoadLocalizedText("LocalizedText_en.json");
@@ -76,6 +81,6 @@ public class LocalizationManager : MonoBehaviour
             result = localizedText[key];
         }
         return result;
-        
+
     }
 }

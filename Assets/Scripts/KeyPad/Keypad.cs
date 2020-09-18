@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Keypad : MonoBehaviour
 {
     [Header("Keypad settings")]
     public string currentPassword = "1234";
-    public string input = "";
-    public Text displayText;
+    public string input = string.Empty;
     public AudioSource correctPassword;
     public AudioSource incorrectPassword;
     public Animator openSafe;
-    [SerializeField] GameObject disable;
+    [HideInInspector] public Text displayText;
+    [SerializeField] private GameObject disable;
 
     private int buttonClicked = 0;
     private int numberOfChars;

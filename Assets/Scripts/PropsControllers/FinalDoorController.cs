@@ -1,35 +1,41 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class FinalDoorController : MonoBehaviour
 {
     public bool playerHaveKey = false;
     private bool isCheked = false;
-    [SerializeField] Animator door;
-    [SerializeField] Animator doorHandler;
-    [SerializeField] AudioSource doorClosed;
-    [SerializeField] AudioSource doorOpened;
+    [SerializeField] private Animator door;
+    [SerializeField] private Animator doorHandler;
+    [SerializeField] private AudioSource doorClosed;
+    [SerializeField] private AudioSource doorOpened;
     public void Check()
     {
         if (playerHaveKey)
         {
             OpenDoor();
-            //doorOpened.Play();
         }
         else
         {
             Closed();
-            //doorClosed.Play();
         }
     }
     private void OpenDoor()
     {
         door.Play("Open");
         doorHandler.Play("DoorOpenHandler");
-        GetComponent<InteractiveObject>().enabled = false;
+        doorOpened.Play();
+        Invoke("Title", 1.5f);
     }
     private void Closed()
     {
         isCheked = !isCheked;
         doorHandler.SetBool("isCheked", isCheked);
+        doorClosed.Play();
+    }
+    private void Title()
+    {
+        SceneManager.LoadScene("FinalScene");
     }
 }

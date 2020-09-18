@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SafeController : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    [SerializeField] private Animator animator;
     public bool isOpen;
 
     private void Start()
