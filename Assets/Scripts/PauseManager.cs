@@ -37,10 +37,16 @@ public class PauseManager : MonoBehaviour
     public void Pause()
     {
         pauses.ForEach(n => n.Pause());
+        PauseMenu.Instate.Pause();
+    }
+    public void PauseWithoutMenu()
+    {
+        pauses.ForEach(n => n.Pause());
     }
 
     public void Resume()
     {
         pauses.ForEach(n => n.Resume());
+        PauseMenu.Instate.Resume();
     }
 }
