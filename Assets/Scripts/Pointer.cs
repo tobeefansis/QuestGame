@@ -42,7 +42,7 @@ public class Pointer : MonoBehaviour, IPause
 
             if (Physics.Raycast(ray, out RaycastHit hit, 5, layerMask))
             {
-
+                Debug.DrawLine(hit.point, ray.origin,Color.red);
                 var interactiveObject = hit.transform.GetComponent<InteractiveObject>();
 
 

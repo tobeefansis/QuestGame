@@ -14,7 +14,7 @@ public class SmartCam : MonoBehaviour
 
     public void ShowObject()
     {
-        PauseManager.Instance.Pause();
+        PauseManager.Instance.PauseWithoutMenu();
         var cam = Camera.main.transform;
         LastCameraParent = cam.parent; cam.parent = null;
         lastPos = cam.position;

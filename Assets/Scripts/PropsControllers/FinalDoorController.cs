@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class FinalDoorController : MonoBehaviour
 {
     public bool playerHaveKey = false;
-    private bool isCheked = false;
     [SerializeField] private Animator door;
     [SerializeField] private Animator doorHandler;
     [SerializeField] private AudioSource doorClosed;
@@ -30,9 +30,14 @@ public class FinalDoorController : MonoBehaviour
     }
     private void Closed()
     {
-        isCheked = !isCheked;
-        doorHandler.SetBool("isCheked", isCheked);
+        doorHandler.SetTrigger("Check");
         doorClosed.Play();
+        StartCoroutine(RunCloseAnimation());
+    }
+    IEnumerator RunCloseAnimation ()
+    {
+        yield return new WaitForSeconds(1.2f);
+        doorHandler.SetTrigger("isCheked");
     }
     private void Title()
     {
