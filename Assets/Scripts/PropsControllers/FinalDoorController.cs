@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FinalDoorController : MonoBehaviour
 {
-    public bool playerHaveKey = false;
+    public static bool playerHaveKey = false;
     [SerializeField] private Animator door;
     [SerializeField] private Animator doorHandler;
     [SerializeField] private AudioSource doorClosed;
