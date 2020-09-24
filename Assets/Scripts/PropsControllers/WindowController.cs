@@ -6,10 +6,11 @@ public class WindowController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     public bool isOpen;
-    public static bool isBroken;
+    public bool isBroken;
     private void Start()
     {
         isOpen = false;
+        isBroken = false;
     }
     public void Break()
     {

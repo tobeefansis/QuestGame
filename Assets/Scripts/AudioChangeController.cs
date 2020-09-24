@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AudioChangeController : MonoBehaviour
 {
-    [SerializeField] AudioSource ambient;
+    [SerializeField] private AudioSource ambient;
     public bool isOutside = false;
     
     public void ChangeSound()
@@ -21,13 +21,7 @@ public class AudioChangeController : MonoBehaviour
         }
     }
 
-    private void Decrease()
-    {
-        ambient.volume = 0.1f;
-    }
+    private void Decrease() => ambient.volume = 0.1f;
 
-    private void Increase()
-    {
-        ambient.volume = 0.6f;
-    }
+    private void Increase() => ambient.volume = 0.6f;
 }
