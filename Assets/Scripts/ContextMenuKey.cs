@@ -10,7 +10,8 @@ public class ContextMenuKey : MonoBehaviour
 
     public void Set(KeyAction keyAction)
     {
-        ActionText.text = keyAction.name;
+        ActionText.text = LocalizationManager.instance.GetLocalizedValue(keyAction.name);
         ActionKeyIcon.text = keyAction.key.ToString();
     }
+ 
 }

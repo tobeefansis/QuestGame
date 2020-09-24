@@ -28,7 +28,6 @@ public class LocalizationManager : MonoBehaviour
     }
     private void Start()
     {
-        //switch
         #region Set system language 
         if (Application.systemLanguage == SystemLanguage.English)
         {
