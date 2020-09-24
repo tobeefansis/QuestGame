@@ -9,6 +9,10 @@ public class Watch : MonoBehaviour
     [SerializeField] GameObject pointerMinutes;
     [SerializeField] GameObject pointerHours;
 
+    public void SetTimeScale(int t)
+    {
+        TimeController.Instance.timeScale = t;
+    }
 
     // Update is called once per frame
     private void LateUpdate()

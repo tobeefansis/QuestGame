@@ -21,6 +21,14 @@ public class TextEditor : MonoBehaviour
         select.text = text;
         this.text.text = select.text;
     }
+    public void SaveText() => SaveText(text.text);
+
+    public void ResetButton(GameObject gameObject)
+    {
+        gameObject.SetActive(!gameObject.activeInHierarchy);
+    }
+
+
 }
 [CreateAssetMenu()]
 public class TextFile : ScriptableObject

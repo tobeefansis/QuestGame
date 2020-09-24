@@ -34,8 +34,11 @@ public abstract class SavedObject : MonoBehaviour
  
     public void Load()
     {
-        var str = PlayerPrefs.GetString(path);
-        SetValue(str);
+        if (!SaveController.instance.IsNewGame)
+        {
+            var str = PlayerPrefs.GetString(path);
+            SetValue(str);
+        }
     }
     private void Awake()
     {

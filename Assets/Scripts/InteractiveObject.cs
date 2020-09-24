@@ -7,9 +7,12 @@ using System;
 public class InteractiveObject : MonoBehaviour, IPause
 {
     public List<KeyAction> keyActions = new List<KeyAction>();
+    public AudioClip Clip;
+    public AudioSource Source;
 
     public bool IsShow;
     public bool IsPause;
+    public bool IsAudioEffect;
 
     public void Show()
     {
@@ -20,6 +23,12 @@ public class InteractiveObject : MonoBehaviour, IPause
     {
         IsShow = false;
     }
+
+    public void Toggle(GameObject gameObject)
+    {
+        gameObject.SetActive(!gameObject.activeInHierarchy);
+    }
+
     private void Update()
     {
         if (IsShow && !IsPause)
@@ -30,6 +39,11 @@ public class InteractiveObject : MonoBehaviour, IPause
                 {
                     item.action?.Invoke();
                 }
+            }
+            if (IsAudioEffect && Source)
+            {
+                Source.clip = Clip;
+                Source.Play();
             }
         }
     }
