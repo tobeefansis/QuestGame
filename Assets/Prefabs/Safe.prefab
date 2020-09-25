@@ -679,6 +679,7 @@ GameObject:
   - component: {fileID: 8044894436622874627}
   - component: {fileID: 1525603288}
   - component: {fileID: 1525603287}
+  - component: {fileID: 2659150387700889362}
   m_Layer: 0
   m_Name: DoorPivot
   m_TagString: Untagged
@@ -733,7 +734,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1525603288}
-  isOpen: 0
+  save: {fileID: 2659150387700889362}
+--- !u!114 &2659150387700889362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758514931547398733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa13a01789aab9345ac1cbe3b60626c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsMultiplayer: 1
+  path: Safe 1
+  isOpen: 1
+  OnChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1525603287}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &873298452
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -776,8 +806,11 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  Clip: {fileID: 0}
+  Source: {fileID: 0}
   IsShow: 0
   IsPause: 0
+  IsAudioEffect: 0
 --- !u!1 &2232937897563784139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,8 +1692,11 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  Clip: {fileID: 0}
+  Source: {fileID: 0}
   IsShow: 0
   IsPause: 0
+  IsAudioEffect: 0
 --- !u!114 &2140899552
 MonoBehaviour:
   m_ObjectHideFlags: 0

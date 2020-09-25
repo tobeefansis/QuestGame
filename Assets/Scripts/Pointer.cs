@@ -24,6 +24,7 @@ public class Pointer : MonoBehaviour, IPause
         if (Instance == null)
         {
             Instance = this;
+            OnChangeSelectObject.AddListener(FindObjectOfType<ContextMenu>().ChangeSelectObject);
         }
         else
         {
@@ -77,10 +78,12 @@ public class Pointer : MonoBehaviour, IPause
 
     public void Pause()
     {
-        
-        StopCoroutine(corutine); 
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        if (corutine!=null)
+        {
+            StopCoroutine(corutine);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     public void Resume()

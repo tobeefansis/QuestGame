@@ -3,13 +3,15 @@ using System.Collections;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using System;
+using Photon.Realtime;
+using ExitGames.Client.Photon;
 
-public class InteractiveObject : MonoBehaviour, IPause
+public class InteractiveObject : MonoBehaviour, IPause, IOnEventCallback
 {
     public List<KeyAction> keyActions = new List<KeyAction>();
     public AudioClip Clip;
     public AudioSource Source;
-
+    
     public bool IsShow;
     public bool IsPause;
     public bool IsAudioEffect;
@@ -57,6 +59,11 @@ public class InteractiveObject : MonoBehaviour, IPause
     {
         IsPause = false;
 
+    }
+
+    public void OnEvent(EventData photonEvent)
+    {
+       // photonEvent.ToStringFull
     }
 }
 

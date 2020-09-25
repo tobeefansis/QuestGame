@@ -1,21 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
+using UnityEngine;
+/*[RequireComponent(typeof(Animator), typeof(SafeControllerSave))]
 public class SafeController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    public bool isOpen;
+    [SerializeField] private SafeControllerSave save;
 
+    private void Awake()
+    {
+        save = GetComponent<SafeControllerSave>();
+        animator = GetComponent<Animator>();
+    }
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        isOpen = false;
     }
     public void OpenClose()
     {
-        isOpen = !isOpen;
-        animator.SetBool("IsOpen", isOpen);
+        save.IsOpen = !save.IsOpen;
+        Change();
     }
 
-}
+    private void Change()
+    {
+        animator.SetBool("IsOpen", save.IsOpen);
+    }
+}*/

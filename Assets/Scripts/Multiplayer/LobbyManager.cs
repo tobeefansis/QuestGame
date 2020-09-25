@@ -1,44 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+
 using Photon.Pun;
+
+using UnityEngine;
 using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
-    public Text log;
-    void Start()
+
+    public Text LogText;
+
+    private void Start()
     {
-        PhotonNetwork.NickName = "Player" + Random.Range(1,69);
-        Log("Player name set as " + PhotonNetwork.NickName);
-
-        PhotonNetwork.GameVersion = "1.0a";
-        Log("Current game version is " + PhotonNetwork.GameVersion);
+        PhotonNetwork.NickName = "Player" + Random.value;
+        Log("playerName = " + PhotonNetwork.NickName);
         PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.GameVersion = "1";
         PhotonNetwork.ConnectUsingSettings();
-
     }
+
     public override void OnConnectedToMaster()
     {
-        Log("Connected to master");
+        Log("OnConnectedToMaster");
     }
-    public void CreateRoom()
-    {
-        PhotonNetwork.CreateRoom(null, new Photon.Realtime.RoomOptions {MaxPlayers = 2});
-    }
-    public void JoinRoom()
+
+    public void JoinToRoom()
     {
         PhotonNetwork.JoinRandomRoom();
     }
+
+    public void CreateRoom()
+    {
+        PhotonNetwork.CreateRoom(null, new Photon.Realtime.RoomOptions { MaxPlayers = 2 });
+    }
+
     public override void OnJoinedRoom()
     {
-        Log("Joined the room");
-        PhotonNetwork.LoadLevel("Level2Multi");
+        Log("On Joined to Room");
+        PhotonNetwork.LoadLevel("Game2");
     }
-    private void Log(string message)
+
+    void Log(string text)
     {
-        Debug.Log(message);
-        log.text += "\n";
-        log.text += message;
+        Debug.Log(text);
+        LogText.text += "\n";
+        LogText.text += text;
     }
 }

@@ -1,20 +1,33 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(DoorControllerSave), typeof(Animator))]
 public class DoorController : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    public bool isOpen;
+    [SerializeField] DoorControllerSave save;
+
+    private void Awake()
+    {
+        save = GetComponent<DoorControllerSave>();
+        save.OnChange.AddListener(Change);
+    }
+
+    public void Change()
+    {
+        animator.SetBool("isOpen", save.IsOpen);
+    }
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        isOpen = false;
+        save.OnChange.AddListener(Change);
+        save.IsOpen = false;
     }
     public void OpenClose()
     {
-        isOpen = !isOpen;
-        animator.SetBool("isOpen", isOpen);
+        save.IsOpen = !save.IsOpen;
+        Change();
     }
 }

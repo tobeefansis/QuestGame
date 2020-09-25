@@ -1,27 +1,71 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+
+using ExitGames.Client.Photon;
+
+using Photon.Pun;
+using Photon.Realtime;
+
 using UnityEditor;
+
 using UnityEngine;
-public abstract class SavedObject : MonoBehaviour
+
+public abstract class SavedObject : MonoBehaviour, IOnEventCallback
 {
+    public enum EventType
+    {
+        Nope,
+        Door,
+        Safe,
+        Candle
+    }
+    [Serializable]
+    public class Arg
+    {
+        public int id;
+        public EventType type;
+
+        public Arg(int id, EventType type)
+        {
+            this.id = id;
+            this.type = type;
+        }
+    }
+
+    public bool IsMultiplayer;
     public string path;
+    EventType eventType;
+
     public void Save()
     {
         PlayerPrefs.SetString(path, GetValue());
     }
+
     private void OnEnable()
     {
-        Load();
+        if (IsMultiplayer)
+        {
+            PhotonNetwork.AddCallbackTarget(this);
+        }
+        else
+        {
+            Load();
+        }
     }
     private void OnDisable()
     {
-        Save();
+        if (IsMultiplayer)
+        {
+
+            PhotonNetwork.RemoveCallbackTarget(this);
+        }
+        else
+        {
+            Save();
+        }
     }
-    private void OnApplicationQuit()
-    {
-        Save();
-    }
+
     public string GetValue()
     {
         return JsonUtility.ToJson(this);
@@ -31,7 +75,7 @@ public abstract class SavedObject : MonoBehaviour
     {
         JsonUtility.FromJsonOverwrite(value, this);
     }
- 
+
     public void Load()
     {
         if (!SaveController.instance.IsNewGame)
@@ -40,9 +84,18 @@ public abstract class SavedObject : MonoBehaviour
             SetValue(str);
         }
     }
-    private void Awake()
+
+    public abstract void Event(string arg);
+
+    public void OnEvent(EventData photonEvent)
     {
-        Load();
+        Event((string)photonEvent.CustomData);
     }
 
+    public void InvokeEvent(EventType type, string json)
+    {
+        RaiseEventOptions options = new RaiseEventOptions { Receivers = ReceiverGroup.All };
+        SendOptions sendOptions = new SendOptions { Reliability = true };
+        PhotonNetwork.RaiseEvent((byte)type, json, options, sendOptions);
+    }
 }

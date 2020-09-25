@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
+using Photon.Pun;
+
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class MovementController : MonoBehaviour, IPause
@@ -17,21 +19,39 @@ public class MovementController : MonoBehaviour, IPause
     [SerializeField] float jumpForce = 10; // сила прыжка
     [SerializeField] float jumpDistance = 1.2f; // расстояние от центра объекта, до поверхности
 
+    [SerializeField] bool IsMultiplayer;
+    [SerializeField] PhotonView photonView;
+    [SerializeField] GameObject Camera;
+
     private Vector3 direction;
     public LayerMask layerMask;
     private Rigidbody body;
     private float rotationY;
     public bool active;
 
+    private void Awake()
+    {
+        //if (!photonView.IsMine) return;
+        //    if (!photonView.IsMine) return;
+        IsMultiplayer = PhotonNetwork.IsConnected;
+        if (!photonView.IsMine && IsMultiplayer)
+        {
+            Destroy(Camera);
+            Destroy(this);
+        }
+
+   
+        body = GetComponent<Rigidbody>();
+    }
     void Start()
     {
-        body = GetComponent<Rigidbody>();
         body.freezeRotation = true;
         Resume();
     }
 
     void FixedUpdate()
     {
+
         body.AddForce(direction * speed, ForceMode.VelocityChange);
 
         if (Mathf.Abs(body.velocity.x) > speed)
@@ -87,14 +107,14 @@ public class MovementController : MonoBehaviour, IPause
     public void Pause()
     {
         active = false;
-      
+
 
     }
 
     public void Resume()
     {
         active = true;
-       
+
     }
-    
+
 }

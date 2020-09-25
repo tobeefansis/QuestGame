@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4177046354630628}
   - component: {fileID: 65455356704917402}
   - component: {fileID: 8756045186039858438}
+  - component: {fileID: 5128441448755872766}
   m_Layer: 0
   m_Name: candle
   m_TagString: Untagged
@@ -157,12 +158,12 @@ MonoBehaviour:
     action:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8756045186039858438}
-          m_MethodName: Toggle
-          m_Mode: 2
+        - m_Target: {fileID: 5128441448755872766}
+          m_MethodName: IsOpen
+          m_Mode: 1
           m_Arguments:
-            m_ObjectArgument: {fileID: 6635606057559984391}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -173,6 +174,26 @@ MonoBehaviour:
   IsShow: 0
   IsPause: 0
   IsAudioEffect: 0
+--- !u!114 &5128441448755872766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791116001804358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7c69d6d34083740a715841622c572a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsMultiplayer: 1
+  path: Candle
+  target: {fileID: 6635606057559984391}
+  IsLight: 0
+  id: 1
+  OnChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1942294695409674
 GameObject:
   m_ObjectHideFlags: 0

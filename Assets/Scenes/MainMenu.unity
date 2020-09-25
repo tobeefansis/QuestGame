@@ -2709,7 +2709,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2024163727}
+      - m_Target: {fileID: 2018842421}
         m_MethodName: CreateRoom
         m_Mode: 1
         m_Arguments:
@@ -5651,7 +5651,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1647560711 stripped
 Transform:
@@ -6822,8 +6822,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2024163727}
-        m_MethodName: JoinRoom
+      - m_Target: {fileID: 2018842421}
+        m_MethodName: JoinToRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6879,6 +6879,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2018842420}
+  - component: {fileID: 2018842421}
   m_Layer: 5
   m_Name: Multiplayer
   m_TagString: Untagged
@@ -6909,50 +6910,19 @@ RectTransform:
   m_AnchoredPosition: {x: -181, y: 1}
   m_SizeDelta: {x: 682.1179, y: 689.2467}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2024163726
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2024163728}
-  - component: {fileID: 2024163727}
-  m_Layer: 0
-  m_Name: MultiplayerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2024163727
+--- !u!114 &2018842421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024163726}
+  m_GameObject: {fileID: 2018842419}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79be3f01299138e498ae3da1171076e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  log: {fileID: 1525114903}
---- !u!4 &2024163728
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024163726}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.035086, y: -14.520223, z: -37.26912}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  LogText: {fileID: 1525114903}
 --- !u!4 &2043349336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4350637049652996, guid: ac1d6bc633cb75f43b455f34daf7fd73,
