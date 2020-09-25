@@ -471,6 +471,16 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.342
       objectReference: {fileID: 0}
+    - target: {fileID: 5128441448755872766, guid: 9d012b73caba62246906034d78994c42,
+        type: 3}
+      propertyPath: IsMultiplayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128441448755872766, guid: 9d012b73caba62246906034d78994c42,
+        type: 3}
+      propertyPath: IsLight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8756045186039858438, guid: 9d012b73caba62246906034d78994c42,
         type: 3}
       propertyPath: keyActions.Array.data[0].name
@@ -1279,6 +1289,16 @@ PrefabInstance:
       propertyPath: id
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5128441448755872766, guid: 9d012b73caba62246906034d78994c42,
+        type: 3}
+      propertyPath: IsMultiplayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128441448755872766, guid: 9d012b73caba62246906034d78994c42,
+        type: 3}
+      propertyPath: IsLight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8756045186039858438, guid: 9d012b73caba62246906034d78994c42,
         type: 3}
       propertyPath: keyActions.Array.data[0].name
@@ -1697,12 +1717,17 @@ PrefabInstance:
     - target: {fileID: 5128441448755872766, guid: 9d012b73caba62246906034d78994c42,
         type: 3}
       propertyPath: IsMultiplayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5128441448755872766, guid: 9d012b73caba62246906034d78994c42,
         type: 3}
       propertyPath: path
       value: Candle 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128441448755872766, guid: 9d012b73caba62246906034d78994c42,
+        type: 3}
+      propertyPath: IsLight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8756045186039858438, guid: 9d012b73caba62246906034d78994c42,
         type: 3}
