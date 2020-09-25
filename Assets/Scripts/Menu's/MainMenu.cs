@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
     }
     public void NewGame()
     { 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Game2");
         // Добавить функционал создания новой игры
     }
     public void ResetProgress()
