@@ -18,7 +18,8 @@ public abstract class SavedObject : MonoBehaviour, IOnEventCallback
         Nope,
         Door,
         Safe,
-        Candle
+        Candle,
+        Laptop
     }
     [Serializable]
     public class Arg
