@@ -13,10 +13,14 @@ public class MainMenu : MonoBehaviour
     #region MainMenu
     public void Countinue()
     {
+
+        SaveController.instance.IsNewGame = SaveController.IsEnd;
+        SceneManager.LoadScene("Game1");
         // Если есть сохраненная игра - кнопка активна, продолжает игру (interactable set active)
     }
     public void NewGame()
-    { 
+    {
+        SaveController.instance.IsNewGame = true;
         SceneManager.LoadScene("Game1");
         // Добавить функционал создания новой игры
     }

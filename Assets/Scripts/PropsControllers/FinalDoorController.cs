@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,13 +35,14 @@ public class FinalDoorController : MonoBehaviour
         doorClosed.Play();
         StartCoroutine(RunCloseAnimation());
     }
-    IEnumerator RunCloseAnimation ()
+    IEnumerator RunCloseAnimation()
     {
         yield return new WaitForSeconds(1.2f);
         doorHandler.SetTrigger("isCheked");
     }
     private void Title()
     {
+        SaveController.End();
         SceneManager.LoadScene("FinalScene");
     }
 }

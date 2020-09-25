@@ -12,6 +12,7 @@ public class SaveController : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this);
+
         }
         else
         {
@@ -21,7 +22,8 @@ public class SaveController : MonoBehaviour
     #endregion
 
     public bool IsNewGame { get; set; }
-
+    public static bool IsEnd => PlayerPrefs.GetString("IsEnd", "") != "";
+    public static void End() => PlayerPrefs.SetString("IsEnd", "Win");
     public void SetGameSatus(bool isNewGame)
     {
         IsNewGame = isNewGame;

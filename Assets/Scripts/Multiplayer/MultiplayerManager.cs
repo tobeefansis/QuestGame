@@ -8,7 +8,8 @@ using System.Collections.Generic;
 public class MultiplayerManager : MonoBehaviourPunCallbacks
 {
     public GameObject Player;
-    
+
+
     public List<InteractiveObject> interactiveObjects = new List<InteractiveObject>();
 
     private void Start()
