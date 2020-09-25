@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
-    public static bool IsMultiplayer = PhotonNetwork.IsConnected;
+
 
     public Text LogText;
 

@@ -13,7 +13,11 @@ public class TextEditor : MonoBehaviour
     public void SetTextFile(TextFile file)
     {
         select = file;
-        text.text = select.text;
+        if (text && select)
+        {
+
+            text.text = select.text;
+        }
     }
 
     public void SaveText(string text)
