@@ -9,10 +9,18 @@ public class LevelLoader : MonoBehaviour
 {
     public void LoadUnderground()
     {
-        PhotonNetwork.LoadLevel("Game2");
+        SceneManager.LoadScene("Game1");
     }
     public void LoadHouse()
     {
-        PhotonNetwork.LoadLevel("WorkingSceneSV");
+        SceneManager.LoadScene("WorkingSceneSV1");
+    }
+    public void LoadUndergroundMulti()
+    {
+        PhotonNetwork.LoadLevel("Game2");
+    }
+    public void LoadHouseMulti()
+    {
+        PhotonNetwork.LoadLevel("WorkingSceneSV2");
     }
 }
