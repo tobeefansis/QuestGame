@@ -1022,7 +1022,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 280536537}
-          m_MethodName: LoadHouse
+          m_MethodName: LoadHouseMulti
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
