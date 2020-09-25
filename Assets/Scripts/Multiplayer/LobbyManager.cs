@@ -8,8 +8,6 @@ using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
-
-
     public Text LogText;
 
     private void Start()
